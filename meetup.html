@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule an In-Person Meetup</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+        .container { max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ddd; border-radius: 10px; }
+        input, button { padding: 10px; margin-top: 10px; width: 100%; }
+        iframe { width: 100%; height: 500px; border: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Schedule an In-Person Meeting</h2>
+        <p>Please select a time from the calendar below and confirm your phone number.</p>
+        
+        <!-- Embed Google Calendar for scheduling -->
+        <iframe src="https://calendar.google.com/calendar/embed?src=your_calendar_id&ctz=Your_Timezone"></iframe>
+        
+        <h3>Contact Information</h3>
+        <p>For any questions, call or text: <strong>+1-XXX-XXX-XXXX</strong></p>
+        
+        <!-- User Confirmation Form -->
+        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <input type="tel" name="phone" placeholder="Your Phone Number" required>
+            <label>
+                <input type="checkbox" name="confirmation" required>
+                I confirm my appointment selection.
+            </label>
+            <button type="submit">Confirm Appointment</button>
+        </form>
+    </div>
+</body>
+</html>

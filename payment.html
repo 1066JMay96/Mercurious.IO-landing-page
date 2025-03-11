@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+        .payment-option { margin: 20px 0; display: none; }
+        .qr-code { width: 150px; height: 150px; }
+        .container { max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ddd; border-radius: 10px; }
+        input, button { padding: 10px; margin-top: 10px; width: 100%; }
+    </style>
+    <script>
+        function showPaymentOptions(event) {
+            event.preventDefault();
+            document.getElementById("form-container").style.display = "none";
+            document.getElementById("payment-options").style.display = "block";
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>Confirm Your Information Before Payment</h2>
+        <div id="form-container">
+            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" onsubmit="showPaymentOptions(event)">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <input type="text" name="transaction_id" placeholder="Transaction ID / Notes" required>
+                <label>
+                    <input type="checkbox" name="signature" required>
+                    I acknowledge this as my receipt and confirm the payment.
+                </label>
+                <button type="submit">Submit & Proceed to Payment</button>
+            </form>
+        </div>
+
+        <div id="payment-options">
+            <h2>Choose a Payment Method</h2>
+            
+            <!-- Bitcoin Payment -->
+            <div class="payment-option">
+                <h3>Bitcoin (BTC)</h3>
+                <img class="qr-code" src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=bitcoin:YOUR_BTC_ADDRESS" alt="BTC QR Code">
+                <p>Send BTC to: <strong>YOUR_BTC_ADDRESS</strong></p>
+            </div>
+
+            <!-- Ethereum Payment -->
+            <div class="payment-option">
+                <h3>Ethereum (ETH)</h3>
+                <img class="qr-code" src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=ethereum:YOUR_ETH_ADDRESS" alt="ETH QR Code">
+                <p>Send ETH to: <strong>YOUR_ETH_ADDRESS</strong></p>
+            </div>
+
+            <!-- Monero Payment -->
+            <div class="payment-option">
+                <h3>Monero (XMR)</h3>
+                <img class="qr-code" src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=monero:YOUR_XMR_ADDRESS" alt="XMR QR Code">
+                <p>Send XMR to: <strong>YOUR_XMR_ADDRESS</strong></p>
+            </div>
+
+            <!-- ZCash Payment -->
+            <div class="payment-option">
+                <h3>ZCash (ZEC) - Shielded Address</h3>
+                <img class="qr-code" src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=zcash:YOUR_ZEC_ADDRESS" alt="ZEC QR Code">
+                <p>Send ZEC to: <strong>YOUR_ZEC_ADDRESS</strong></p>
+            </div>
+
+            <!-- PayPal Payment -->
+            <div class="payment-option">
+                <h3>PayPal</h3>
+                <p><a href="https://www.paypal.me/YOUR_PAYPAL_LINK" target="_blank">Click here to pay via PayPal</a></p>
+            </div>
+
+            <!-- Bank Transfer -->
+            <div class="payment-option">
+                <h3>Bank Transfer</h3>
+                <p>Bank Name: Your Bank Name</p>
+                <p>Account Number: XXXXXXXXXX</p>
+                <p>SWIFT Code: XXXXXXXX</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
